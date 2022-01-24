@@ -1,0 +1,88 @@
+body {
+  background: radial-gradient(
+    circle at 0.7% 1%,
+    rgb(215, 248, 247) 0%,
+    rgb(102, 188, 239) 100.2%
+  );
+  max-width: 100%;
+  padding: 40px;
+}
+form {
+  margin: 30px 80px;
+  left: 250px;
+  font-size: 18px;
+  max-width: 100%;
+  padding: 0 5px;
+}
+h1 {
+  font-family: "Roboto", sans-serif;
+}
+
+.card {
+  background: #5585b5;
+  text-align: center;
+  margin: 80px 0;
+  padding: 0 30px;
+  font-size: 20px;
+}
+.card-text {
+  font-size: 30px;
+}
+
+.current-emoji {
+  font-size: 60px;
+
+  margin: 0 auto;
+}
+
+.search-city {
+  padding: 0 10px;
+  border-radius: 4px;
+  transition: all 200ms ease-in-out;
+}
+.search-city:hover {
+  cursor: pointer;
+  background-color: rgb(102, 188, 239);
+}
+.time {
+  font-size: 25px;
+}
+.temp {
+  font-size: 25px;
+}
+.wind {
+  font-family: "Roboto", sans-serif;
+  list-style: none;
+  font-size: 30px;
+  padding-left: 80px;
+}
+.current-temp {
+  font-size: 60px;
+}
+.celsius {
+  font-size: 20px;
+  position: relative;
+  top: -28px;
+  text-decoration: none;
+}
+
+.fahrenheit-temp {
+  font-size: 20px;
+  position: relative;
+  top: -28px;
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+}
+button {
+  padding: 0 10px;
+  border-radius: 4px;
+  transition: all 200ms ease-in-out;
+}
+
+button:hover {
+  background-color: #5585b5;
+  cursor: pointer;
+}
