@@ -42,6 +42,7 @@ form.addEventListener("submit", findCity);
 
 function displayTemperature(response) {
   console.log(response.data);
+  document.querySelector("h1").innerHTML = response.data.name;
   let temperature = Math.round(response.data.main.temp);
   let dispTemperature = document.querySelector(".current-temp");
   dispTemperature.innerHTML = `${temperature}`;
