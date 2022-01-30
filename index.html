@@ -27,7 +27,7 @@
     <br />
     
     <form id="searchCity">
-      <input type="search" placeholder="Enter City Here" id=enterCity />
+      <input type="search" placeholder="Enter City Here" id=enter-city />
       <input type="submit" value="Search" class="search-city" />
  <button id=locate>Current Location</button>
     </form>
@@ -35,17 +35,21 @@
 <div class="row">
   <div class ="col-6"> 
 <ul class="wind">
-      <li>Wind:4km/h</li>
+      <li>Wind:<span id= speed>4</span>km/h</li>
     
-      <li>Humidity:100%</li>
+      <li>Humidity:<span id =humidity>100</span>%</li>
+      <li><span id =description></span></li>
     </ul>
     </div>
   <div class ="col-6">
+    
     <h1> 📍Sheffield  </h1>
     <p class= "time" id="date">Fri,17 Dec 23:59</p>
-<p class="current-emoji">🌧️<span class = "current-temp" >7</span><a href="#"  class ="celsius">°C |</a><a href="#"  class="fahrenheit-temp">°F</a></p>
+    
+<p class="current-emoji"><img src=" " alt="Clear" id="icon" /><span class = "current-temp" >7</span><a href="#"  class ="celsius">°C |</a><a href="#"  class="fahrenheit-temp">°F</a></p>
+
 </div> 
-  
+  </div>
 </div>
   
     <div class = "container">  
