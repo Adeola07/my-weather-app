@@ -28,11 +28,11 @@ h1 {
 .card-text {
   font-size: 30px;
 }
-
-.current-emoji {
+.icon {
+  display: inline-block;
+  position: absolute;
   font-size: 60px;
-
-  margin: 0 auto;
+  top: -15px;
 }
 
 .search-city {
@@ -55,6 +55,9 @@ h1 {
   list-style: none;
   font-size: 30px;
   padding-left: 80px;
+}
+li:first-letter {
+  text-transform: capitalize;
 }
 .current-temp {
   font-size: 60px;
