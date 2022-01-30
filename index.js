@@ -25,27 +25,34 @@ function formatDate() {
 
   let times = document.querySelector(".time");
   times.innerHTML = `${currentDate}`;
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
 }
 formatDate();
-
-function findCity(event) {
-  event.preventDefault();
-  let input = document.querySelector("#enterCity");
-  console.log(input.value);
-  let cityEmoji = "📍";
-  let newCity = `${cityEmoji} ${input.value}`;
-  let currentCity = document.querySelector("h1");
-  currentCity.innerHTML = `${newCity}`;
-}
-let form = document.querySelector("#searchCity");
-form.addEventListener("submit", findCity);
 
 function displayTemperature(response) {
   console.log(response.data);
   document.querySelector("h1").innerHTML = response.data.name;
-  let temperature = Math.round(response.data.main.temp);
-  let dispTemperature = document.querySelector(".current-temp");
-  dispTemperature.innerHTML = `${temperature}`;
+  document.querySelector("#speed").innerHTML = Math.round(
+    response.data.wind.speed
+  );
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].description;
+  document.querySelector(".current-temp").innerHTML = Math.round(
+    response.data.main.temp
+  );
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function showLocation(position) {
@@ -64,15 +71,18 @@ function getCurrentLocation(event) {
 let get = document.querySelector("#locate");
 get.addEventListener("click", getCurrentLocation);
 
-function showTemperature(response) {
-  console.log(response.data);
-  let temperature = Math.round(response.data);
-  let input = document.querySelector("#enterCity");
-  let showTemp = document.querySelector(".current-temp");
-  showTemp.innerHTML = `${temperature}`;
+function search(city) {
   let apiKey = "ced540f5728f0002c753875787475e3a";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(displayTemperature);
 }
-let button = document.querySelector("#searchCity");
-button.addEventListener("submit", showTemperature);
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#enter-city");
+  search(cityInput.value);
+}
+let form = document.querySelector("#searchCity");
+form.addEventListener("submit", handleSubmit);
+
+search("Sheffield");
