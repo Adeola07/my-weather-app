@@ -28,11 +28,10 @@ h1 {
 .card-text {
   font-size: 30px;
 }
-.icon {
-  display: inline-block;
-  position: absolute;
-  font-size: 60px;
-  top: -15px;
+img {
+  margin-right: 5px;
+  height: 80px;
+  width: 64px;
 }
 
 .search-city {
@@ -63,12 +62,15 @@ li:first-letter {
   font-size: 60px;
 }
 .celsius {
+  color: black;
   font-size: 20px;
   position: relative;
   top: -28px;
   text-decoration: none;
 }
-
+.celsius:hover {
+  text-decoration-line: none;
+}
 .fahrenheit-temp {
   font-size: 20px;
   position: relative;
@@ -89,4 +91,8 @@ button {
 button:hover {
   background-color: #5585b5;
   cursor: pointer;
+}
+
+.weather-app.active {
+  color: black;
 }
