@@ -21,10 +21,7 @@ function formatDate() {
   let hours = now.getHours();
   let minute = now.getMinutes();
   let month = months[now.getMonth()];
-  let currentDate = `${day} , ${month} ${date},${year} ${hours} : ${minute}`;
 
-  let times = document.querySelector(".time");
-  times.innerHTML = `${currentDate}`;
   if (hours < 10) {
     hours = `0${hours}`;
   }
@@ -32,11 +29,15 @@ function formatDate() {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
+  let currentDate = `${day} , ${month} ${date},${year} ${hours} : ${minute}`;
+  let times = document.querySelector(".time");
+  times.innerHTML = `${currentDate}`;
 }
 formatDate();
 
 function displayTemperature(response) {
   console.log(response.data);
+  celsiusTemperature = Math.round(response.data.main.temp);
   document.querySelector("h1").innerHTML = response.data.name;
   document.querySelector("#speed").innerHTML = Math.round(
     response.data.wind.speed
@@ -82,7 +83,27 @@ function handleSubmit(event) {
   let cityInput = document.querySelector("#enter-city");
   search(cityInput.value);
 }
+
+function changeFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  let temperatureElement = document.querySelector(".current-temp");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+function changeCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector(".current-temp");
+  temperatureElement.innerHTML = celsiusTemperature;
+}
+let celsiusTemperature = null;
+
 let form = document.querySelector("#searchCity");
 form.addEventListener("submit", handleSubmit);
+
+let unitCelsius = document.querySelector(".celsius");
+unitCelsius.addEventListener("click", changeCelsius);
+
+let unit = document.querySelector(".fahrenheit-temp");
+unit.addEventListener("click", changeFahrenheit);
 
 search("Sheffield");
