@@ -28,10 +28,12 @@ h1 {
 .card-text {
   font-size: 30px;
 }
-img {
-  margin-right: 5px;
-  height: 80px;
-  width: 64px;
+.icon {
+  display: inline-block;
+  height: 60px;
+  margin-top: unset;
+  vertical-align: top;
+  width: 60px;
 }
 
 .search-city {
@@ -60,13 +62,19 @@ li:first-letter {
 }
 .current-temp {
   font-size: 60px;
+  display: inline-block;
+  height: 60px;
+  margin-top: unset;
+  vertical-align: top;
 }
+
 .celsius {
   color: black;
   font-size: 20px;
   position: relative;
-  top: -28px;
+  top: -20px;
   text-decoration: none;
+  padding: auto;
 }
 .celsius:hover {
   text-decoration-line: none;
@@ -74,7 +82,7 @@ li:first-letter {
 .fahrenheit-temp {
   font-size: 20px;
   position: relative;
-  top: -28px;
+  top: -20px;
   text-decoration: none;
 }
 
