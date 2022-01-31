@@ -38,7 +38,9 @@ formatDate();
 function displayTemperature(response) {
   console.log(response.data);
   celsiusTemperature = Math.round(response.data.main.temp);
+
   document.querySelector("h1").innerHTML = response.data.name;
+
   document.querySelector("#speed").innerHTML = Math.round(
     response.data.wind.speed
   );
@@ -55,7 +57,6 @@ function displayTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
-
 function showLocation(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
