@@ -35,6 +35,32 @@ function formatDate() {
 }
 formatDate();
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+
+        <div class="col-sm-2">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title" id="weather-forecast-day">${day}</h5>
+              <p class="card-text" id ="weather-forecast-icon">⛅</p>
+
+              <p class="temp" id="weather-forecast-temp">6°C</p>
+            </div>
+          </div>
+          </div>
+          `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
 function displayTemperature(response) {
   console.log(response.data);
   celsiusTemperature = Math.round(response.data.main.temp);
@@ -106,5 +132,5 @@ unitCelsius.addEventListener("click", changeCelsius);
 
 let unit = document.querySelector(".fahrenheit-temp");
 unit.addEventListener("click", changeFahrenheit);
-
+displayForecast();
 search("Sheffield");
