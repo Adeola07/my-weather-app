@@ -19,7 +19,7 @@ let months = [
 ];
 function formatDate() {
   let hours = now.getHours();
-  let minute = now.getMinutes();
+
   let month = months[now.getMonth()];
 
   if (hours < 10) {
@@ -29,38 +29,56 @@ function formatDate() {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  let currentDate = `${day} , ${month} ${date},${year} ${hours} : ${minute}`;
+  let currentDate = `${day} , ${month} ${date},${year} ${hours} : ${minutes}`;
   let times = document.querySelector(".time");
   times.innerHTML = `${currentDate}`;
 }
 formatDate();
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
 
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
 
         <div class="col-sm-2">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title" id="weather-forecast-day">${day}</h5>
-              <p class="card-text" id ="weather-forecast-icon">⛅</p>
+              <h5 class="card-title" id="weather-forecast-day">${formatDay(
+                forecastDay.dt
+              )}</h5>
+              <p class="card-text" id ="weather-forecast-icon"><img
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
+          alt=""
+          width="42"</p>
 
-              <p class="temp" id="weather-forecast-temp">6°C</p>
+              <p class="temp" id="weather-forecast-temp">${Math.round(
+                forecastDay.temp.max
+              )}°</p>
             </div>
           </div>
           </div>
           `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
-  console.log(forecastHTML);
 }
+
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "ced540f5728f0002c753875787475e3a";
