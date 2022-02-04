@@ -29,7 +29,7 @@ function formatDate() {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  let currentDate = `${day} , ${month} ${date},${year} ${hours} : ${minutes}`;
+  let currentDate = `${day} , ${month} ${date}, ${year} ${hours} : ${minutes}`;
   let times = document.querySelector(".time");
   times.innerHTML = `${currentDate}`;
 }
@@ -64,7 +64,7 @@ function displayForecast(response) {
             forecastDay.weather[0].icon
           }@2x.png"
           alt=""
-          width="42"</p>
+          width="70"</p>
 
               <p class="temp" id="weather-forecast-temp">${Math.round(
                 forecastDay.temp.max
