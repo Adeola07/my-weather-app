@@ -7,65 +7,26 @@ body {
   max-width: 100%;
   padding: 40px;
 }
-form {
-  margin: 30px 80px;
-  left: 250px;
-  font-size: 18px;
-  max-width: 100%;
-  padding: 0 5px;
+button {
+  padding: 0 10px;
+  border-radius: 4px;
+  transition: all 200ms ease-in-out;
 }
-h1 {
-  font-family: "Roboto", sans-serif;
+
+button:hover {
+  background-color: #5585b5;
+  cursor: pointer;
 }
 
 .card {
   background: #5585b5;
   text-align: center;
   margin: 80px 0;
-  padding: 0 30px;
-  font-size: 20px;
+  padding: 0 20px;
+  font-size: 40px;
 }
 .card-text {
   font-size: 30px;
-}
-.icon {
-  display: inline-block;
-  height: 60px;
-  margin-top: unset;
-  vertical-align: top;
-  width: 60px;
-}
-
-.search-city {
-  padding: 0 10px;
-  border-radius: 4px;
-  transition: all 200ms ease-in-out;
-}
-.search-city:hover {
-  cursor: pointer;
-  background-color: rgb(102, 188, 239);
-}
-.time {
-  font-size: 25px;
-}
-.temp {
-  font-size: 25px;
-}
-.wind {
-  font-family: "Roboto", sans-serif;
-  list-style: none;
-  font-size: 30px;
-  padding-left: 80px;
-}
-li:first-letter {
-  text-transform: capitalize;
-}
-.current-temp {
-  font-size: 60px;
-  display: inline-block;
-  height: 60px;
-  margin-top: unset;
-  vertical-align: top;
 }
 
 .celsius {
@@ -78,6 +39,14 @@ li:first-letter {
 }
 .celsius:hover {
   text-decoration-line: none;
+  color: black;
+}
+.current-temp {
+  font-size: 60px;
+  display: inline-block;
+  height: 60px;
+  margin-top: unset;
+  vertical-align: top;
 }
 .fahrenheit-temp {
   font-size: 20px;
@@ -90,17 +59,52 @@ footer {
   text-align: center;
   text-decoration: none;
 }
-button {
+
+form {
+  margin: 30px 80px;
+  left: 250px;
+  font-size: 18px;
+  max-width: 100%;
+  padding: 0 5px;
+}
+h1 {
+  font-family: "Roboto", sans-serif;
+}
+
+.icon {
+  display: inline-block;
+  height: 60px;
+  margin-top: unset;
+  vertical-align: top;
+  width: 60px;
+}
+li:first-letter {
+  text-transform: capitalize;
+}
+
+.search-city {
   padding: 0 10px;
   border-radius: 4px;
   transition: all 200ms ease-in-out;
 }
-
-button:hover {
-  background-color: #5585b5;
+.search-city:hover {
   cursor: pointer;
+  background-color: rgb(102, 188, 239);
+}
+
+.temp {
+  font-size: 25px;
+}
+.time {
+  font-size: 25px;
 }
 
 .weather-app.active {
   color: black;
+}
+.wind {
+  font-family: "Roboto", sans-serif;
+  list-style: none;
+  font-size: 30px;
+  padding-left: 80px;
 }
